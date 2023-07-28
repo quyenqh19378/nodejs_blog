@@ -26,6 +26,8 @@
     "homepage": "https://github.com/quyenqh19378/nodejs_blog#readme",
     "dependencies": {
         "express": "^4.18.2",
+        "express-handlebars": "^7.1.0",
+        "express-load": "^1.1.16",
         "handlebars": "^4.7.7"
     },
     "devDependencies": {

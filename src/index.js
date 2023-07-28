@@ -1,13 +1,25 @@
+const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
+const handlebars = require("express-handlebars");
 
 const app = express();
 const port = 3000;
 
+// HTTP logger
 app.use(morgan("combined"));
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
+// Template engine
+app.engine("handlebars", handlebars());
+
+app.set("view engine", "handlebars");
+
+app.set("views", path.join(__dirname, "resources\\views"));
+console.log(path.join(__dirname, "views"));
+
+// Routes
+app.get("/", function (req, res) {
+    res.render("home");
 });
 
 app.listen(port, () => {
